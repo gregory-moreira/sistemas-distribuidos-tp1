@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Monografias</h1>
+
+    <form action="{% url 'index' %}" method="post">
+      {% csrf_token %}
+
+      <a href="/create-advisor">CADASTRAR ORIENTADOR</a> |
+      <a href="/create-co-advisor">CADASTRAR CO ORIENTADOR</a> |
+      <a href="/create-author">CADASTRAR AUTOR</a> |
+      <a href="/create-monography">CADASTRAR MONOGRAFIA</a> 
+      
+    </br>
+      
+      <input
+        class="input-text"
+        type="text"
+        name="search"
+        id="search"
+        required
+        placeholder="título, autor, coorientador, resumo, palavras-chave, etc..."
+      />
+      <button class="button-submit" style="margin-top: 30px" type="submit">
+        Buscar
+      </button>
+    </form>
+
+    </br>
+
+    {% if monographys %} {% for monography in monographys %}
+    <a>{{monography.title}}</a>
+  </br>
+    {% endfor %} {% else %}
+    <span>Nenhuma Monografia encontrada</span>
+    {% endif %}
+  </body>
+</html>
