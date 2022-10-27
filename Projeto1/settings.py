@@ -77,11 +77,12 @@ WSGI_APPLICATION = 'Projeto1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tp_monografias',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'monografias-sd',
+        'USER': 'samuelcastro@monografias-sd',
+        'PASSWORD': 'monografias-sd123',
+        'HOST': 'monografias-sd.postgres.database.azure.com',
+        'PORT': '5432',
+        'OPTIONS' : {'sslmode': 'require'}
     }
 }
 
