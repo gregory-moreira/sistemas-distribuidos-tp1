@@ -48,11 +48,11 @@ class Author(models.Model):
 
 class Monography(models.Model):
     title = models.CharField(max_length=50)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.OneToOneField(Author, on_delete=models.CASCADE)
     advisor = models.ForeignKey(Advisor, on_delete=models.CASCADE)
     co_advisor = models.ForeignKey(CoAdvisor, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add = True)
-    summary = models.CharField(max_length=100)
+    summary = models.TextField()
     key_words = models.CharField(max_length=100)
     university = models.CharField(max_length=80)
     course = models.CharField(max_length=50)
